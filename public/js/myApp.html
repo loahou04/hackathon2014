@@ -1,0 +1,47 @@
+<section ng-controller="myAppController">
+	<div class="row expandRow">
+		<p class="text-center">
+			Welcome to OmNomNom-Redux
+		</p>
+  	</div>
+  	<div class="row">
+		<div class="col-md-4">
+			<table class="table table-bordered">
+				<caption>Alphabet Map</caption>
+				<thead>
+					<tr>
+						<th class="text-center">
+							Encoded
+						</th>
+						<th class="text-center">
+							Actual
+						</th>
+					</tr>
+				</thead>
+				<tbody data-ng-repeat="letter in alphabetList">
+					<tr class="text-center">
+						<td>
+							{{letter.encoded}}
+						</td>
+						<td>
+							<input type="text" maxLength="1" class="inputWidth" ng-model="letter.actual"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button class="btn btn-default" ng-click="submitMap()">submit</button>
+
+		</div>
+		<div class="col-md-8">
+			<div class="row" ng-repeat="word in phrase">
+				<div>
+					<section ng-repeat="letter in word track by $index" class="lettersInWord">
+						<p>{{letter.encoded}}</p>
+						<input type="text" maxLength="1" class="inputWidth" ng-model="letter.actual">
+					</section>
+				</div>
+			</div>
+
+		</div>
+	</div>	
+</section>
